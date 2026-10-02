@@ -9,10 +9,10 @@ is_connected = False
 hasRun = False
 
 # Tokens and servers
-TWITCH_SERVER = ""
-OAUTH_TOKEN = ""
-BOT_NICK = ""
-CHANNEL = ""
+TWITCH_SERVER = "wss://irc-ws.chat.twitch.tv:443"
+CHANNEL = "#CHANNELNAME"
+BOT_NICK = "BOTNAME"
+OAUTH_TOKEN = "oauth:#################"
 #endregion
 
 
@@ -62,7 +62,7 @@ async def main():
         threading.Thread(target=input_Thread, args=(loop,), daemon=True).start()
 
         # Start Twitch reader loop
-        await twitch_reader()
+        # await twitch_reader()
         
         # asyncio.create_task(test_Loop())    
         await asyncio.Future()  # run forever
@@ -99,6 +99,7 @@ def input_Thread(loop):
 
 # Read Twitch chat messages
 
+"""
 async def twitch_reader():
     uri = TWITCH_SERVER
     async with websockets.connect(uri) as ws:
@@ -128,6 +129,8 @@ async def twitch_reader():
                 print (f"Error in Twitch reader: {e}")
                 await asyncio.sleep(2)  # Wait before trying to reconnect
 
+"""
+                
 # Entry point of the script
 
 if __name__ == "__main__":
