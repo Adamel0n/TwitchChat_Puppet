@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Puppet</title>
+    <style>
+        body {
+            margin: 0;
+            background: transparent;
+            overflow: hidden;
+        }
+        #puppet {
+            width: 390px;
+            height: 600px;
+            object-fit: none;
+            object-position: 0px 0px;
+            position: absolute;
+            background: transparent;
+            bottom: 0px;
+            left: 0px;
+        }
+        #puppet-body {
+            transition-duration: 500ms;
+            position: absolute;
+            left: 0px;
+            bottom: -500px;
+            animation-duration: 500ms;
+        }
+        #puppet-container {
+            width: 390px;
+            height: 600px;
+            transform-origin: center bottom;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+        }
+        #mouth {
+            width: 350px;
+            height: 270px;
+            object-fit: none;
+            object-position: -410px 0px;
+            position: absolute;
+            background: transparent;
+            bottom: 0px;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="puppet-body">
+        <div id="puppet-container">
+            <img id="puppet" src="sprites/ChatSpriteSheet.png">
+        </div>
+        <img id="mouth" src="sprites/ChatSpriteSheet.png">
+    </div>
+    <script src="puppet.js"></script>
+</body>
+</html>
