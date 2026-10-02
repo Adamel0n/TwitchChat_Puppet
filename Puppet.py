@@ -121,15 +121,18 @@ async def twitch_reader():
                     if "PRIVMSG" in message:
                         # Parsing the Twitch chat message to extract the actual chat content
                         message = message.split(":")[2].strip()
+                        if message[0] == '!':
+                            message = message[1:]
 
-                        # Twitch chat is converted to a json and sent to client
-                        json_String = '{"type": "talk_start", "message": "' + message + '"}'
-                        await send_message(json_String)
+                            # Twitch chat is converted to a json and sent to client
+                            json_String = '{"type": "talk_start", "message": "' + message + '"}'
+                            await send_message(json_String)
+                        
             except Exception as e:
                 print (f"Error in Twitch reader: {e}")
                 await asyncio.sleep(2)  # Wait before trying to reconnect
-
 """
+
                 
 # Entry point of the script
 
